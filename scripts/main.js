@@ -45,15 +45,17 @@ function handleGuess(letter) {
 }
 
 function guessedWord() {
-    wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+    wordStatus = answer.split('').map(letter => {
+        if (!letter || letter === '-') return ` ${letter} `
+        return (guessed.indexOf(letter) >= 0 ? letter : " _ ")
+    }).join('');
     document.getElementById('word-spotlight').innerHTML = wordStatus;
 }
 
-
 function checkGameStatus() {
-
-    if (wordStatus === answer && mistakes !== maxWrong) document.getElementById('keyboard').innerHTML = `You Won!`;
-    else if (wordStatus !== answer && mistakes === maxWrong) {
+    const word = wordStatus.replace(/\s/g, '');
+    if (word === answer && mistakes !== maxWrong) document.getElementById('keyboard').innerHTML = `You Won!`;
+    else if (word !== answer && mistakes === maxWrong) {
         document.getElementById('keyboard').innerHTML = `You Lost!`;
         document.getElementById('word-spotlight').innerHTML = 'The answer was: ' + answer;
     }
