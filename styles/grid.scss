@@ -1,0 +1,47 @@
+$padding: 20px;
+
+.grid-container {
+  .grid-row {
+    .grid-cell {
+      box-sizing: border-box;
+      float: left;
+      width: 50%;
+
+      &:nth-child(2n) {
+        padding-left: $padding;
+      }
+
+      &:nth-child(2n+1) {
+        padding-right: $padding;
+      }
+
+      &.grid-cell-25 {
+        width: 25%;
+      }
+
+      &.grid-cell-50 {
+        width: 50%;
+      }
+
+      &.grid-cell-75 {
+        width: 75%;
+      }
+
+      &.grid-cell-100 {
+        width: 100%;
+      }
+
+      @media (max-width: 1024px) {
+        width: 100%;
+        float: none;
+        padding-bottom: $padding;
+        &:nth-child(2n) {
+          padding-left: 0;
+        }
+        &:nth-child(2n+1) {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

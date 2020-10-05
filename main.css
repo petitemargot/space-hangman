@@ -1,0 +1,70 @@
+.grid-container .grid-row .grid-cell {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+.grid-container .grid-row .grid-cell:nth-child(2n) {
+  padding-left: 20px;
+}
+.grid-container .grid-row .grid-cell:nth-child(2n+1) {
+  padding-right: 20px;
+}
+.grid-container .grid-row .grid-cell.grid-cell-25 {
+  width: 25%;
+}
+.grid-container .grid-row .grid-cell.grid-cell-50 {
+  width: 50%;
+}
+.grid-container .grid-row .grid-cell.grid-cell-75 {
+  width: 75%;
+}
+.grid-container .grid-row .grid-cell.grid-cell-100 {
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .grid-container .grid-row .grid-cell {
+    width: 100%;
+    float: none;
+    padding-bottom: 20px;
+  }
+  .grid-container .grid-row .grid-cell:nth-child(2n) {
+    padding-left: 0;
+  }
+  .grid-container .grid-row .grid-cell:nth-child(2n+1) {
+    padding-right: 0;
+  }
+}
+
+* {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+canvas {
+  height: 100%;
+  width: 100%;
+  background: #1B2732;
+  position: fixed;
+}
+
+.container {
+  position: relative;
+  color: #FFF;
+  padding: 10px;
+}
+.container .header {
+  width: 100%;
+  text-align: center;
+}
+
+/*# sourceMappingURL=main.css.map */
