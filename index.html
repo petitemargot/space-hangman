@@ -18,6 +18,25 @@
             <h1 class="header">Space Hangman</h1>
         </div>
     </div>
+    <div class="grid-row">
+        <div class="grid-cell grid-cell-100">
+            <div class="mistakes"> Wrong Guesses: <span class="wrong" id="mistakes">0</span> of <span class="max-wrong"
+                                                                                                      id="maxWrong"></span>
+            </div>
+        </div>
+    </div>
+    <div class="grid-row">
+        <div class="grid-cell grid-cell-100">
+            <div class="sub-headers">
+                <div>Guess the word</div>
+                <div class="typewriter">(P.S. I really like a Star Wars Saga)</div>
+                <div id="word-spotlight">The word to be guessed goes here</div>
+                <div id="keyboard"></div>
+                <button class="button-info" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 <script src="scripts/main.js"></script>
 </body>

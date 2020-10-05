@@ -66,5 +66,40 @@ canvas {
   width: 100%;
   text-align: center;
 }
+.container .mistakes {
+  margin-right: 40px;
+  float: right;
+}
+.container .sub-headers {
+  text-align: center;
+  margin: 40px;
+}
+.container .sub-headers div {
+  margin: 10px 0;
+}
+.container .sub-headers .typewriter {
+  display: inline-block;
+  width: 340px;
+  margin: 0 auto;
+  color: #FFF;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.5s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
