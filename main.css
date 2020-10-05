@@ -60,7 +60,7 @@ canvas {
 .container {
   position: relative;
   color: #FFF;
-  padding: 10px;
+  padding: 30px 10px;
 }
 .container .header {
   width: 100%;
@@ -77,13 +77,19 @@ canvas {
 .container .sub-headers div {
   margin: 10px 0;
 }
+.container .sub-headers #word-spotlight {
+  padding: 20px 0;
+}
+.container .sub-headers .letter, .container .sub-headers .button-info {
+  padding: 8px !important;
+}
 .container .sub-headers .typewriter {
   display: inline-block;
   width: 340px;
   margin: 0 auto;
   color: #FFF;
   overflow: hidden;
-  border-right: 0.15em solid orange;
+  border-right: 0.15em solid #FFA500;
   white-space: nowrap;
   letter-spacing: 0.15em;
   animation: typing 3.5s steps(40, end), blink-caret 0.5s step-end infinite;
@@ -98,8 +104,59 @@ canvas {
     border-color: transparent;
   }
   50% {
-    border-color: orange;
+    border-color: #FFA500;
   }
+}
+.container .sub-headers .astronaut {
+  position: relative;
+  width: 185px;
+  height: 300px;
+  margin: 0 auto;
+}
+.container .sub-headers .astronaut-backpack {
+  background-color: #BFBFBF;
+  position: absolute;
+  top: 90px;
+  left: 47px;
+  width: 86px;
+  height: 90px;
+  content: "";
+  border-radius: 8px;
+}
+.container .sub-headers .astronaut-body {
+  background-color: #E6E6E6;
+  position: absolute;
+  top: 115px;
+  left: 55px;
+  width: 70px;
+  height: 80px;
+  border-radius: 8px;
+}
+.container .sub-headers .astronaut-body-chest {
+  background-color: #D9D9D9;
+  margin: 20px 12px;
+  width: 46px;
+  height: 25px;
+  border-radius: 6px;
+}
+.container .sub-headers .astronaut-head {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 60px;
+  height: 60px;
+  border-radius: 2em;
+  background-color: #FFF;
+}
+.container .sub-headers .astronaut-head:before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  top: calc(50% - 20px);
+  left: calc(50% - 25px);
+  background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=main.css.map */

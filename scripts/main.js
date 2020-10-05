@@ -46,7 +46,9 @@ function handleGuess(letter) {
 
 function guessedWord() {
     wordStatus = answer.split('').map(letter => {
-        if (!letter || letter === '-') return ` ${letter} `
+        if (!letter || letter === '-' || letter === ' ') {
+            return `\xa0${letter}\xa0`
+        }
         return (guessed.indexOf(letter) >= 0 ? letter : " _ ")
     }).join('');
     document.getElementById('word-spotlight').innerHTML = wordStatus;
@@ -54,8 +56,9 @@ function guessedWord() {
 
 function checkGameStatus() {
     const word = wordStatus.replace(/\s/g, '');
-    if (word === answer && mistakes !== maxWrong) document.getElementById('keyboard').innerHTML = `You Won!`;
-    else if (word !== answer && mistakes === maxWrong) {
+    const correctAnswer = answer.replace(/\s/g, '');
+    if (word === correctAnswer && mistakes !== maxWrong) document.getElementById('keyboard').innerHTML = `You Won!`;
+    else if (word !== correctAnswer && mistakes === maxWrong) {
         document.getElementById('keyboard').innerHTML = `You Lost!`;
         document.getElementById('word-spotlight').innerHTML = 'The answer was: ' + answer;
     }

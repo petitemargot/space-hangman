@@ -26,7 +26,7 @@ canvas {
 .container {
   position: relative;
   color: $color-white;
-  padding: 10px;
+  padding: 30px 10px;
 
   .header {
     width: 100%;
@@ -46,13 +46,21 @@ canvas {
       margin: 10px 0;
     }
 
+    #word-spotlight {
+      padding: 20px 0;
+    }
+
+    .letter, .button-info {
+      padding: 8px !important;
+    }
+
     .typewriter {
       display: inline-block;
       width: 340px;
       margin: 0 auto;
       color: $color-white;
       overflow: hidden; // Ensures the content is not revealed until the animation
-      border-right: .15em solid orange; // The cursor
+      border-right: .15em solid $color-orange; // The cursor
       white-space: nowrap;
       letter-spacing: .15em; // Adjust as needed
       animation: typing 3.5s steps(40, end),
@@ -70,7 +78,64 @@ canvas {
         border-color: transparent
       }
       50% {
-        border-color: orange
+        border-color: $color-orange;
+      }
+    }
+
+    .astronaut {
+      position: relative;
+      width: 185px;
+      height: 300px;
+      margin: 0 auto;
+
+      &-backpack {
+        background-color: $color-silver;
+        position: absolute;
+        top: 90px;
+        left: 47px;
+        width: 86px;
+        height: 90px;
+        content: '';
+        border-radius: 8px;
+      }
+
+      &-body {
+        background-color: $color-mercury;
+        position: absolute;
+        top: 115px;
+        left: 55px;
+        width: 70px;
+        height: 80px;
+        border-radius: 8px;
+
+        &-chest {
+          background-color: $color-alto;
+          margin: 20px 12px;
+          width: 46px;
+          height: 25px;
+          border-radius: 6px;
+        }
+      }
+
+      &-head {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        width: 60px;
+        height: 60px;
+        border-radius: 2em;
+        background-color: $color-white;
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 50px;
+          height: 40px;
+          top: calc(50% - 20px);
+          left: calc(50% - 25px);
+          background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+          border-radius: 15px;
+        }
       }
     }
   }
