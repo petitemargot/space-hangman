@@ -1,11 +1,12 @@
 @import "variables";
-@import 'grid';
+@import "grid";
 
 * {
-  font-family: $font-main
+  font-family: $font-main;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
@@ -42,15 +43,12 @@ canvas {
     text-align: center;
     margin: 40px;
 
-    div {
-      margin: 10px 0;
-    }
-
     #word-spotlight {
       padding: 20px 0;
     }
 
-    .letter, .button-info {
+    .letter,
+    .button-info {
       padding: 8px !important;
     }
 
@@ -60,22 +58,22 @@ canvas {
       margin: 0 auto;
       color: $color-white;
       overflow: hidden; // Ensures the content is not revealed until the animation
-      border-right: .15em solid $color-orange; // The cursor
+      border-right: 0.15em solid $color-orange; // The cursor
       white-space: nowrap;
-      letter-spacing: .15em; // Adjust as needed
-      animation: typing 3.5s steps(40, end),
-      blink-caret .5s step-end infinite;
+      letter-spacing: 0.15em; // Adjust as needed
+      animation: typing 3.5s steps(40, end), blink-caret 0.5s step-end infinite;
     }
 
     @keyframes typing {
       from {
-        width: 0
+        width: 0;
       }
     }
 
     @keyframes blink-caret {
-      from, to {
-        border-color: transparent
+      from,
+      to {
+        border-color: transparent;
       }
       50% {
         border-color: $color-orange;
@@ -88,6 +86,10 @@ canvas {
       height: 300px;
       margin: 0 auto;
 
+      &.explosion {
+        display: none;
+      }
+
       &-backpack {
         background-color: $color-silver;
         position: absolute;
@@ -95,7 +97,7 @@ canvas {
         left: 47px;
         width: 86px;
         height: 90px;
-        content: '';
+        content: "";
         border-radius: 8px;
       }
 
@@ -117,6 +119,95 @@ canvas {
         }
       }
 
+      &-arm {
+        position: absolute;
+        background-color: $color-mercury;
+        width: 45px;
+        height: 20px;
+        border-radius: 8px;
+        &.left-part-1 {
+          top: 127px;
+          left: 15px;
+        }
+        &.left-part-2 {
+          top: 123px;
+          left: 0;
+          transform: rotate(30deg);
+          width: 25px;
+        }
+        &.left-thumb {
+          top: 120px;
+          left: 12px;
+          width: 10px;
+          height: 6px;
+          transform: rotate(70deg);
+        }
+        &.left-wrist,
+        &.right-wrist {
+          background-color: $color-bondi-blue;
+          width: 20px;
+          height: 4px;
+        }
+        &.left-wrist {
+          top: 134px;
+          left: 10px;
+          transform: rotate(-70deg);
+        }
+        &.right-part-1 {
+          top: 130px;
+          left: 115px;
+          transform: rotate(25deg);
+        }
+        &.right-part-2 {
+          top: 135px;
+          left: 150px;
+          transform: rotate(-25deg);
+          width: 25px;
+        }
+        &.right-wrist {
+          top: 144px;
+          left: 145px;
+          transform: rotate(-90deg);
+        }
+      }
+
+      &-leg {
+        background-color: $color-mercury;
+        position: absolute;
+        width: 23px;
+        height: 75px;
+        &.left {
+          top: 188px;
+          left: 50px;
+          transform: rotate(10deg);
+          &-foot {
+            left: 43px;
+            transform: rotate(10deg);
+          }
+        }
+        &.right {
+          top: 188px;
+          left: 106px;
+          transform: rotate(-10deg);
+          &-foot {
+            left: 108px;
+            transform: rotate(-10deg);
+          }
+        }
+
+        &.left-foot,
+        &.right-foot {
+          background-color: $color-java;
+          top: 240px;
+          width: 28px;
+          height: 20px;
+          border-radius: 3px;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          border-bottom: 4px solid $color-white;
+        }
+      }
+
       &-head {
         position: absolute;
         top: 60px;
@@ -133,10 +224,213 @@ canvas {
           height: 40px;
           top: calc(50% - 20px);
           left: calc(50% - 25px);
-          background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+          background: -webkit-linear-gradient(
+            top,
+            $color-java 0%,
+            $color-java 50%,
+            $color-bondi-blue 50%,
+            $color-bondi-blue 100%
+          );
           border-radius: 15px;
         }
       }
+    }
+
+    .meteor {
+      background: $color-aqua;
+      height: 50px;
+      width: 600px;
+      padding: 5px;
+      -webkit-border-radius: 0 500px 500px 0;
+      -moz-border-radius: 0 500px 500px 0;
+      -ms-border-radius: 0 500px 500px 0;
+      -o-border-radius: 0 500px 500px 0;
+      border-radius: 0 500px 500px 0;
+      position: relative;
+      left: -590px;
+      top: -200px;
+      -webkit-box-shadow: 6px 0px 35px $color-robins-egg-blue;
+      -moz-box-shadow: 6px 0px 35px $color-robins-egg-blue;
+      box-shadow: 6px 0px 35px $color-robins-egg-blue;
+      overflow: hidden;
+
+      &.explosion {
+        display: none !important;
+      }
+
+      &.mistake-1 {
+        left: -530px !important;
+      }
+
+      &.mistake-2 {
+        left: -470px !important;
+      }
+
+      &.mistake-3 {
+        left: -410px !important;
+      }
+
+      &.mistake-4 {
+        left: -340px !important;
+      }
+
+      &.mistake-5 {
+        left: -270px !important;
+      }
+
+      &.mistake-6 {
+        left: -200px !important;
+      }
+
+      &-first-layer {
+        background: linear-gradient(
+          to right,
+          $color-mandy 50%,
+          $color-jaffa 100%
+        );
+        height: 100%;
+        width: 100%;
+        -webkit-border-radius: 200px 200px 200px 200px;
+        -moz-border-radius: 200px 200px 200px 200px;
+        -ms-border-radius: 200px 200px 200px 200px;
+        -o-border-radius: 200px 200px 200px 200px;
+        border-radius: 200px 200px 200px 200px;
+        position: absolute;
+        top: 2px;
+        left: 550px;
+        width: 55px;
+        height: 55px;
+
+        .meteor-second-layer {
+          content: "";
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 50px solid $color-mandy;
+          position: absolute;
+          left: -20px;
+          top: 5px;
+          &.second-triangle {
+            top: 15px;
+            border-right-width: 70px;
+            left: -40px;
+          }
+          &.third-triangle {
+            top: 30px;
+            border-right-width: 60px;
+            left: -30px;
+          }
+        }
+      }
+    }
+
+    .boom-container {
+      position: relative;
+      display: none;
+      width: 80px;
+      height: 300px;
+      text-align: center;
+      align-items: center;
+      transform: translateY(-50%);
+      left: 47%;
+      top: 170px;
+
+      &.explosion {
+        display: flex;
+      }
+
+      .shape {
+        display: inline-block;
+        position: relative;
+        opacity: 0;
+        transform-origin: center center;
+
+        &.triangle {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          transform-origin: 50% 80%;
+          animation-duration: 1s;
+          animation-timing-function: ease-out;
+          animation-iteration-count: infinite;
+          margin-left: -25px;
+          border-width: 0 5px 10px 5px;
+          border-color: transparent transparent $color-orange transparent;
+          animation-name: boom-triangle-big;
+        }
+
+        &.circle {
+          width: 20px;
+          height: 20px;
+          animation-name: boom-circle;
+          animation-duration: 1s;
+          animation-timing-function: ease-out;
+          animation-iteration-count: infinite;
+          border-radius: 100%;
+          margin-left: -30px;
+
+          &.red {
+            border: 1px solid $color-mandy;
+          }
+
+          &.big {
+            width: 40px;
+            height: 40px;
+            margin-left: 0px;
+
+            &.orange {
+              border: 2px solid $color-jaffa;
+            }
+          }
+        }
+
+        &:after {
+          background-color: rgba(178, 215, 232, 0.2);
+        }
+      }
+
+      .shape {
+        &.triangle,
+        &.circle,
+        &.circle.big {
+          animation-delay: 0.38s;
+          animation-duration: 3s;
+        }
+
+        &.circle {
+          animation-delay: 0.6s;
+        }
+      }
+    }
+  }
+
+  @keyframes boom-circle {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 0;
+      transform: scale(3);
+    }
+    100% {
+    }
+  }
+
+  @keyframes boom-triangle-big {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+
+    40% {
+      opacity: 0;
+      transform: scale(2.5) translate(50px, -50px) rotate(360deg);
+    }
+    100% {
     }
   }
 }

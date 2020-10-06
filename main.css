@@ -39,7 +39,8 @@
   font-family: "Kumbh Sans", sans-serif;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
@@ -53,13 +54,13 @@ body {
 canvas {
   height: 100%;
   width: 100%;
-  background: #1B2732;
+  background: #1b2732;
   position: fixed;
 }
 
 .container {
   position: relative;
-  color: #FFF;
+  color: #fff;
   padding: 30px 10px;
 }
 .container .header {
@@ -74,22 +75,20 @@ canvas {
   text-align: center;
   margin: 40px;
 }
-.container .sub-headers div {
-  margin: 10px 0;
-}
 .container .sub-headers #word-spotlight {
   padding: 20px 0;
 }
-.container .sub-headers .letter, .container .sub-headers .button-info {
+.container .sub-headers .letter,
+.container .sub-headers .button-info {
   padding: 8px !important;
 }
 .container .sub-headers .typewriter {
   display: inline-block;
   width: 340px;
   margin: 0 auto;
-  color: #FFF;
+  color: #fff;
   overflow: hidden;
-  border-right: 0.15em solid #FFA500;
+  border-right: 0.15em solid #ffa500;
   white-space: nowrap;
   letter-spacing: 0.15em;
   animation: typing 3.5s steps(40, end), blink-caret 0.5s step-end infinite;
@@ -104,7 +103,7 @@ canvas {
     border-color: transparent;
   }
   50% {
-    border-color: #FFA500;
+    border-color: #ffa500;
   }
 }
 .container .sub-headers .astronaut {
@@ -113,8 +112,11 @@ canvas {
   height: 300px;
   margin: 0 auto;
 }
+.container .sub-headers .astronaut.explosion {
+  display: none;
+}
 .container .sub-headers .astronaut-backpack {
-  background-color: #BFBFBF;
+  background-color: #bfbfbf;
   position: absolute;
   top: 90px;
   left: 47px;
@@ -124,7 +126,7 @@ canvas {
   border-radius: 8px;
 }
 .container .sub-headers .astronaut-body {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   position: absolute;
   top: 115px;
   left: 55px;
@@ -133,11 +135,95 @@ canvas {
   border-radius: 8px;
 }
 .container .sub-headers .astronaut-body-chest {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   margin: 20px 12px;
   width: 46px;
   height: 25px;
   border-radius: 6px;
+}
+.container .sub-headers .astronaut-arm {
+  position: absolute;
+  background-color: #e6e6e6;
+  width: 45px;
+  height: 20px;
+  border-radius: 8px;
+}
+.container .sub-headers .astronaut-arm.left-part-1 {
+  top: 127px;
+  left: 15px;
+}
+.container .sub-headers .astronaut-arm.left-part-2 {
+  top: 123px;
+  left: 0;
+  transform: rotate(30deg);
+  width: 25px;
+}
+.container .sub-headers .astronaut-arm.left-thumb {
+  top: 120px;
+  left: 12px;
+  width: 10px;
+  height: 6px;
+  transform: rotate(70deg);
+}
+.container .sub-headers .astronaut-arm.left-wrist, .container .sub-headers .astronaut-arm.right-wrist {
+  background-color: #0391bf;
+  width: 20px;
+  height: 4px;
+}
+.container .sub-headers .astronaut-arm.left-wrist {
+  top: 134px;
+  left: 10px;
+  transform: rotate(-70deg);
+}
+.container .sub-headers .astronaut-arm.right-part-1 {
+  top: 130px;
+  left: 115px;
+  transform: rotate(25deg);
+}
+.container .sub-headers .astronaut-arm.right-part-2 {
+  top: 135px;
+  left: 150px;
+  transform: rotate(-25deg);
+  width: 25px;
+}
+.container .sub-headers .astronaut-arm.right-wrist {
+  top: 144px;
+  left: 145px;
+  transform: rotate(-90deg);
+}
+.container .sub-headers .astronaut-leg {
+  background-color: #e6e6e6;
+  position: absolute;
+  width: 23px;
+  height: 75px;
+}
+.container .sub-headers .astronaut-leg.left {
+  top: 188px;
+  left: 50px;
+  transform: rotate(10deg);
+}
+.container .sub-headers .astronaut-leg.left-foot {
+  left: 43px;
+  transform: rotate(10deg);
+}
+.container .sub-headers .astronaut-leg.right {
+  top: 188px;
+  left: 106px;
+  transform: rotate(-10deg);
+}
+.container .sub-headers .astronaut-leg.right-foot {
+  left: 108px;
+  transform: rotate(-10deg);
+}
+.container .sub-headers .astronaut-leg.left-foot, .container .sub-headers .astronaut-leg.right-foot {
+  background-color: #15aece;
+  top: 240px;
+  width: 28px;
+  height: 20px;
+  border-radius: 3px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 4px solid #fff;
 }
 .container .sub-headers .astronaut-head {
   position: absolute;
@@ -146,7 +232,7 @@ canvas {
   width: 60px;
   height: 60px;
   border-radius: 2em;
-  background-color: #FFF;
+  background-color: #fff;
 }
 .container .sub-headers .astronaut-head:before {
   content: "";
@@ -157,6 +243,167 @@ canvas {
   left: calc(50% - 25px);
   background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
   border-radius: 15px;
+}
+.container .sub-headers .meteor {
+  background: #0dffe1;
+  height: 50px;
+  width: 600px;
+  padding: 5px;
+  -webkit-border-radius: 0 500px 500px 0;
+  -moz-border-radius: 0 500px 500px 0;
+  -ms-border-radius: 0 500px 500px 0;
+  -o-border-radius: 0 500px 500px 0;
+  border-radius: 0 500px 500px 0;
+  position: relative;
+  left: -590px;
+  top: -200px;
+  -webkit-box-shadow: 6px 0px 35px #00dfd4;
+  -moz-box-shadow: 6px 0px 35px #00dfd4;
+  box-shadow: 6px 0px 35px #00dfd4;
+  overflow: hidden;
+}
+.container .sub-headers .meteor.explosion {
+  display: none !important;
+}
+.container .sub-headers .meteor.mistake-1 {
+  left: -530px !important;
+}
+.container .sub-headers .meteor.mistake-2 {
+  left: -470px !important;
+}
+.container .sub-headers .meteor.mistake-3 {
+  left: -410px !important;
+}
+.container .sub-headers .meteor.mistake-4 {
+  left: -340px !important;
+}
+.container .sub-headers .meteor.mistake-5 {
+  left: -270px !important;
+}
+.container .sub-headers .meteor.mistake-6 {
+  left: -200px !important;
+}
+.container .sub-headers .meteor-first-layer {
+  background: linear-gradient(to right, #e54c5b 50%, #f3784d 100%);
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -ms-border-radius: 200px 200px 200px 200px;
+  -o-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px 200px 200px 200px;
+  position: absolute;
+  top: 2px;
+  left: 550px;
+  width: 55px;
+  height: 55px;
+}
+.container .sub-headers .meteor-first-layer .meteor-second-layer {
+  content: "";
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 50px solid #e54c5b;
+  position: absolute;
+  left: -20px;
+  top: 5px;
+}
+.container .sub-headers .meteor-first-layer .meteor-second-layer.second-triangle {
+  top: 15px;
+  border-right-width: 70px;
+  left: -40px;
+}
+.container .sub-headers .meteor-first-layer .meteor-second-layer.third-triangle {
+  top: 30px;
+  border-right-width: 60px;
+  left: -30px;
+}
+.container .sub-headers .boom-container {
+  position: relative;
+  display: none;
+  width: 80px;
+  height: 300px;
+  text-align: center;
+  align-items: center;
+  transform: translateY(-50%);
+  left: 47%;
+  top: 170px;
+}
+.container .sub-headers .boom-container.explosion {
+  display: flex;
+}
+.container .sub-headers .boom-container .shape {
+  display: inline-block;
+  position: relative;
+  opacity: 0;
+  transform-origin: center center;
+}
+.container .sub-headers .boom-container .shape.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transform-origin: 50% 80%;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  margin-left: -25px;
+  border-width: 0 5px 10px 5px;
+  border-color: transparent transparent #ffa500 transparent;
+  animation-name: boom-triangle-big;
+}
+.container .sub-headers .boom-container .shape.circle {
+  width: 20px;
+  height: 20px;
+  animation-name: boom-circle;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  border-radius: 100%;
+  margin-left: -30px;
+}
+.container .sub-headers .boom-container .shape.circle.red {
+  border: 1px solid #e54c5b;
+}
+.container .sub-headers .boom-container .shape.circle.big {
+  width: 40px;
+  height: 40px;
+  margin-left: 0px;
+}
+.container .sub-headers .boom-container .shape.circle.big.orange {
+  border: 2px solid #f3784d;
+}
+.container .sub-headers .boom-container .shape:after {
+  background-color: rgba(178, 215, 232, 0.2);
+}
+.container .sub-headers .boom-container .shape.triangle, .container .sub-headers .boom-container .shape.circle, .container .sub-headers .boom-container .shape.circle.big {
+  animation-delay: 0.38s;
+  animation-duration: 3s;
+}
+.container .sub-headers .boom-container .shape.circle {
+  animation-delay: 0.6s;
+}
+@keyframes boom-circle {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+@keyframes boom-triangle-big {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+    transform: scale(2.5) translate(50px, -50px) rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
