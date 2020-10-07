@@ -1,66 +1,20 @@
 const starWarsWords = [
-  `amidala`,
-  `anakin skywalker`,
-  `army`,
-  `artoo-deetoo`,
-  `aunt beru`,
-  `bail organa`,
-  `bobba fett`,
-  `buzz droid`,
-  `chanceller`,
-  `chewbacca`,
-  `clone wars`,
-  `coruscant`,
-  `count dooku`,
-  `dagobah`,
-  `dantooine`,
-  `darksaber`,
-  `darth maul`,
-  `darth sidious`,
-  `darth tyrannous`,
-  `darth vader`,
-  `death star`,
-  `destroyer`,
-  `droid`,
-  `ewoks`,
-  `force`,
-  `galaxy`,
-  `grievous`,
-  `han solo`,
-  `hutt`,
-  `jabba`,
-  `jar jar binks`,
-  `jawa`,
-  `jedi`,
-  `jedi academy`,
-  `knight`,
-  `lando calrissian`,
-  `lea organa`,
-  `lightsaber`,
-  `luke skywalker`,
-  `mace windu`,
-  `master`,
-  `master yoda`,
-  `midi-chlorians`,
-  `millenium falcon`,
-  `mos eisley`,
-  `obi-wan kenobi`,
-  `padme`,
-  `palpatine`,
-  `podracing`,
-  `qui-gon jin`,
-  `rebel alliance`,
-  `republic`,
-  `sandpeople`,
-  `see-threepio`,
-  `senator`,
-  `separatist`,
-  `ship`,
-  `sith`,
-  `tatooine`,
+  `amidala`, `anakin skywalker`, `army`, `artoo-deetoo`, `aunt beru`,
+  `bail organa`, `bobba fett`, `buzz droid`, `chanceller`, `chewbacca`,
+  `clone wars`, `coruscant`, `count dooku`, `dagobah`, `dantooine`, 
+  `darksaber`, `darth maul`, `darth sidious`, `darth vader`, `death star`,
+  `destroyer`, `droid`, `ewoks`, `force`, `galaxy`,
+  `grievous`, `han solo`, `jabba`, `jar jar binks`, `jawa`,
+  `jedi`, `jedi academy`, `knight`, `lea organa`, `lightsaber`,
+  `luke skywalker`, `mace windu`, `master`, `master yoda`, `midi-chlorians`,
+  `millenium falcon`, `mos eisley`, `obi-wan kenobi`, `padme`, `palpatine`,
+  `podracing`, `qui-gon jin`, `rebel alliance`, `republic`, `sandpeople`,
+  `see-threepio`, `senator`, `separatist`, `ship`, `sith`, `tatooine`,
 ];
 
 const letters = `abcdefghijklmnopqrstuvwxyz`;
+const animationIds = ["boom", "meteor", "meteor-tail", "astronaut"];
+const mistakeElementsIds = ["meteor", "meteor-tail"];
 
 let answer = ``;
 let maxWrong = 7;
@@ -138,22 +92,40 @@ function updateMistakes() {
 }
 
 function updateMeteor() {
-  const element = document.getElementById("meteor");
-  element.classList.add(`mistake-${mistakes}`);
-  if (mistakes > 1) element.classList.remove(`mistake-${mistakes - 1}`);
-  if (mistakes === 7) {
-    const boomElement = document.getElementById("boom").classList.add("explosion");
-    const meteorElement = document.getElementById("meteor").classList.add("explosion");
-    const astronautElement = document.getElementById("astronaut").classList.add("explosion");
+
+    if (mistakes > 0 && mistakes < 7) {
+      for (let i = 0; i < mistakeElementsIds.length; i++) {
+        document.getElementById(mistakeElementsIds[i]).classList.add(`mistake-${mistakes}`);
+        document.getElementById(mistakeElementsIds[i]).classList.remove(`mistake-${mistakes - 1}`);
+      }
+    }
+   
+    if (mistakes === 7) {
+      for (let j = 0; j < animationIds.length; j++) {
+        document.getElementById(animationIds[j]).classList.add("explosion");
+      }
+      for (let k = 0; k < mistakeElementsIds.length; k++) {
+        document.getElementById(mistakeElementsIds[k]).classList.remove(`mistake-6`);
+      }
+    }
+}
+
+function resetAnimation() {
+  if (mistakes === 0) {
+    for (let i = 0; i < animationIds.length; i++) {
+      document.getElementById(animationIds[i]).classList.remove("explosion");
+    }
   }
 }
 
-function resetAnimation(){
-    if (mistakes === 0) {
-        const boomElement = document.getElementById("boom").classList.remove("explosion");
-        const meteorElement = document.getElementById("meteor").classList.remove("explosion");
-        const astronautElement = document.getElementById("astronaut").classList.remove("explosion");
+function resetMistakes() {
+  for (let i = 0; i < mistakeElementsIds.length; i++) {
+    for (let j = 1; j < 7; j++) {
+      document
+        .getElementById(mistakeElementsIds[i])
+        .classList.remove(`mistake-${j}`);
     }
+  }
 }
 
 function reset() {
@@ -161,7 +133,7 @@ function reset() {
   guessed = [];
   randomWord();
   guessedWord();
-  updateMistakes();
+  resetMistakes();
   generateAlphabet();
   resetAnimation();
 }

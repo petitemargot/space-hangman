@@ -41,7 +41,7 @@ canvas {
 
   .sub-headers {
     text-align: center;
-    margin: 40px;
+    margin: 40px 0;
 
     #word-spotlight {
       padding: 20px 0;
@@ -52,32 +52,9 @@ canvas {
       padding: 8px !important;
     }
 
-    .typewriter {
-      display: inline-block;
-      width: 340px;
-      margin: 0 auto;
-      color: $color-white;
-      overflow: hidden; // Ensures the content is not revealed until the animation
-      border-right: 0.15em solid $color-orange; // The cursor
-      white-space: nowrap;
-      letter-spacing: 0.15em; // Adjust as needed
-      animation: typing 3.5s steps(40, end), blink-caret 0.5s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-    }
-
-    @keyframes blink-caret {
-      from,
-      to {
-        border-color: transparent;
-      }
-      50% {
-        border-color: $color-orange;
-      }
+    &--sub {
+      font-size: 12px;
+      margin: 10px 0 0;
     }
 
     .astronaut {
@@ -238,17 +215,17 @@ canvas {
 
     .meteor {
       background: $color-aqua;
+      position: absolute;
+      left: -5%;
+      top: 40vh;
       height: 50px;
-      width: 600px;
+      width: 90px;
       padding: 5px;
       -webkit-border-radius: 0 500px 500px 0;
       -moz-border-radius: 0 500px 500px 0;
       -ms-border-radius: 0 500px 500px 0;
       -o-border-radius: 0 500px 500px 0;
       border-radius: 0 500px 500px 0;
-      position: relative;
-      left: -590px;
-      top: -200px;
       -webkit-box-shadow: 6px 0px 35px $color-robins-egg-blue;
       -moz-box-shadow: 6px 0px 35px $color-robins-egg-blue;
       box-shadow: 6px 0px 35px $color-robins-egg-blue;
@@ -258,38 +235,12 @@ canvas {
         display: none !important;
       }
 
-      &.mistake-1 {
-        left: -530px !important;
-      }
-
-      &.mistake-2 {
-        left: -470px !important;
-      }
-
-      &.mistake-3 {
-        left: -410px !important;
-      }
-
-      &.mistake-4 {
-        left: -340px !important;
-      }
-
-      &.mistake-5 {
-        left: -270px !important;
-      }
-
-      &.mistake-6 {
-        left: -200px !important;
-      }
-
       &-first-layer {
         background: linear-gradient(
           to right,
           $color-mandy 50%,
           $color-jaffa 100%
         );
-        height: 100%;
-        width: 100%;
         -webkit-border-radius: 200px 200px 200px 200px;
         -moz-border-radius: 200px 200px 200px 200px;
         -ms-border-radius: 200px 200px 200px 200px;
@@ -297,7 +248,7 @@ canvas {
         border-radius: 200px 200px 200px 200px;
         position: absolute;
         top: 2px;
-        left: 550px;
+        left: 40%;
         width: 55px;
         height: 55px;
 
@@ -320,6 +271,67 @@ canvas {
             left: -30px;
           }
         }
+      }
+
+      &.mistake-1 {
+        left: 0% !important;
+      }
+
+      &.mistake-2 {
+        left: 5% !important;
+      }
+
+      &.mistake-3 {
+        left: 10% !important;
+      }
+
+      &.mistake-4 {
+        left: 15% !important;
+      }
+
+      &.mistake-5 {
+        left: 20% !important;
+      }
+
+      &.mistake-6 {
+        left: 25% !important;
+      }
+    }
+
+    .meteor-tail {
+      position: absolute;
+      left: -5%;
+      top: 40vh;
+      border-top: 30px solid transparent;
+      border-bottom: 30px solid transparent;
+      border-right: 58px solid #0dffe1;
+      width: 0;
+      height: 0;
+      &.explosion {
+        display: none !important;
+      }
+      &.mistake-1 {
+        left: -5% !important;
+      }
+
+      &.mistake-2 {
+        left: 0% !important;
+      }
+
+      &.mistake-3 {
+        left: 5% !important;
+      }
+
+      &.mistake-4 {
+        left: 10% !important;
+      }
+
+      &.mistake-5 {
+        left: 15% !important;
+      }
+
+      &.mistake-6 {
+        left: 20% !important;
       }
     }
 
