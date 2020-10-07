@@ -1,76 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="main.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <script type="text/javascript" src="scripts/paper-full.js"></script>
     <script type="text/javascript" src="scripts/background.js"></script>
     <title>Space Hangman game</title>
-</head>
-<body>
-<canvas id="myCanvas" resize></canvas>
-<div class="container grid-container">
-    <div class="grid-row">
+  </head>
+  <body>
+    <canvas id="myCanvas" resize></canvas>
+    <div class="container grid-container loader-correct-width">
+      <div class="grid-row">
         <div class="grid-cell grid-cell-100">
-            <h1 class="header">Space Hangman</h1>
+          <h1 class="header">Space Hangman</h1>
         </div>
-    </div>
-    <div class="grid-row">
+      </div>
+      <div class="grid-row">
         <div class="grid-cell grid-cell-100">
-            <div class="mistakes"> Wrong Guesses: <span class="wrong" id="mistakes">0</span> of <span class="max-wrong"
-                                                                                                      id="maxWrong"></span>
+          <div class="mistakes">
+            Wrong Guesses: <span class="wrong" id="mistakes">0</span> of
+            <span class="max-wrong" id="maxWrong"></span>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row">
+        <div class="grid-cell grid-cell-100">
+          <div class="sub-headers">
+            <div>Guess the word</div>
+            <div class="sub-headers--sub">
+              (P.S. I really like a Star Wars Saga)
             </div>
-        </div>
-    </div>
-    <div class="grid-row">
-        <div class="grid-cell grid-cell-100">
-            <div class="sub-headers">
-                <div>Guess the word</div>
-                <div class="sub-headers--sub">(P.S. I really like a Star Wars Saga)</div>
-                <div class="astronaut" id="astronaut">
-                    <div class="astronaut-backpack"></div>
-                    <div class="astronaut-body">
-                        <div class="astronaut-body-chest"></div>
-                    </div>
-                    <div class="astronaut-arm left-part-1"></div>
-                    <div class="astronaut-arm left-part-2"></div>
-                    <div class="astronaut-arm left-wrist"></div>
-                    <div class="astronaut-arm left-thumb"></div>
-                    <div class="astronaut-arm right-part-1"></div>
-                    <div class="astronaut-arm right-part-2"></div>
-                    <div class="astronaut-arm right-wrist"></div>
-                    <div class="astronaut-leg left"></div>
-                    <div class="astronaut-leg right"></div>
-                    <div class="astronaut-leg left-foot"></div>
-                    <div class="astronaut-leg right-foot"></div>
-                    <div class="astronaut-head"></div>
-                </div>
-                <div class="meteor-container">
-                    <div class="meteor" id="meteor">
-                        <div class="meteor-first-layer">
-                            <div class="meteor-second-layer first-triangle"></div>
-                            <div class="meteor-second-layer second-triangle"></div>
-                            <div class="meteor-second-layer third-triangle"></div>
-                        </div>
-                    </div>
-                    <div class="meteor-tail" id="meteor-tail"></div>
-                </div>
-                <div class="boom-container" id="boom">
-                    <div class="shape circle big orange"></div>
-                    <div class="shape circle red"></div>
-                    <div class="shape triangle"></div>
-                </div>
-                <div id="word-spotlight">The word to be guessed goes here</div>
-                <div id="keyboard"></div>
-                <button class="button-info" onclick="reset()">Reset</button>
+            <div class="astronaut" id="astronaut">
+              <div class="astronaut-backpack"></div>
+              <div class="astronaut-body">
+                <div class="astronaut-body-chest"></div>
+              </div>
+              <div class="astronaut-arm left-part-1"></div>
+              <div class="astronaut-arm left-part-2"></div>
+              <div class="astronaut-arm left-wrist"></div>
+              <div class="astronaut-arm left-thumb"></div>
+              <div class="astronaut-arm right-part-1"></div>
+              <div class="astronaut-arm right-part-2"></div>
+              <div class="astronaut-arm right-wrist"></div>
+              <div class="astronaut-leg left"></div>
+              <div class="astronaut-leg right"></div>
+              <div class="astronaut-leg left-foot"></div>
+              <div class="astronaut-leg right-foot"></div>
+              <div class="astronaut-head"></div>
             </div>
+            <div class="meteor" id="meteor">
+              <div class="meteor-first-layer">
+                <div class="meteor-second-layer first-triangle"></div>
+                <div class="meteor-second-layer second-triangle"></div>
+                <div class="meteor-second-layer third-triangle"></div>
+              </div>
+            </div>
+            <div class="boom-container" id="boom">
+              <div class="shape circle big orange"></div>
+              <div class="shape circle red"></div>
+              <div class="shape triangle"></div>
+            </div>
+            <div id="word-spotlight">The word to be guessed goes here</div>
+            <div id="keyboard"></div>
+            <button class="button-info" onclick="reset()">Reset</button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-<script src="scripts/main.js"></script>
-</body>
+    <div class="container grid-container loader-wrong-width">
+      <div class="grid-row">
+        <div class="grid-cell grid-cell-100">
+          <div class="header">
+            This device is too small - grab a coffee and sit comfortably in
+            front of the slightly larger computer screen to fully enjoy the
+            game.
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>

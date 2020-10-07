@@ -278,53 +278,22 @@ canvas {
   left: -30px;
 }
 .container .sub-headers .meteor.mistake-1 {
-  left: 0% !important;
+  left: 1% !important;
 }
 .container .sub-headers .meteor.mistake-2 {
-  left: 5% !important;
+  left: 7% !important;
 }
 .container .sub-headers .meteor.mistake-3 {
-  left: 10% !important;
+  left: 13% !important;
 }
 .container .sub-headers .meteor.mistake-4 {
-  left: 15% !important;
+  left: 19% !important;
 }
 .container .sub-headers .meteor.mistake-5 {
-  left: 20% !important;
-}
-.container .sub-headers .meteor.mistake-6 {
   left: 25% !important;
 }
-.container .sub-headers .meteor-tail {
-  position: absolute;
-  left: -5%;
-  top: 40vh;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-right: 58px solid #0dffe1;
-  width: 0;
-  height: 0;
-}
-.container .sub-headers .meteor-tail.explosion {
-  display: none !important;
-}
-.container .sub-headers .meteor-tail.mistake-1 {
-  left: -5% !important;
-}
-.container .sub-headers .meteor-tail.mistake-2 {
-  left: 0% !important;
-}
-.container .sub-headers .meteor-tail.mistake-3 {
-  left: 5% !important;
-}
-.container .sub-headers .meteor-tail.mistake-4 {
-  left: 10% !important;
-}
-.container .sub-headers .meteor-tail.mistake-5 {
-  left: 15% !important;
-}
-.container .sub-headers .meteor-tail.mistake-6 {
-  left: 20% !important;
+.container .sub-headers .meteor.mistake-6 {
+  left: 31% !important;
 }
 .container .sub-headers .boom-container {
   position: relative;
@@ -412,6 +381,24 @@ canvas {
   40% {
     opacity: 0;
     transform: scale(2.5) translate(50px, -50px) rotate(360deg);
+  }
+}
+@media (max-width: 966px) {
+  .container.loader-correct-width {
+    display: none;
+  }
+}
+.container.loader-wrong-width {
+  display: none;
+}
+@media (max-width: 965px) {
+  .container.loader-wrong-width {
+    display: block;
+  }
+  .container.loader-wrong-width .header {
+    width: 50%;
+    margin: 50px auto;
+    font-size: 20px;
   }
 }
 

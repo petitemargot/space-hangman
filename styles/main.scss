@@ -274,64 +274,27 @@ canvas {
       }
 
       &.mistake-1 {
-        left: 0% !important;
+        left: 1% !important;
       }
 
       &.mistake-2 {
-        left: 5% !important;
+        left: 7% !important;
       }
 
       &.mistake-3 {
-        left: 10% !important;
+        left: 13% !important;
       }
 
       &.mistake-4 {
-        left: 15% !important;
+        left: 19% !important;
       }
 
       &.mistake-5 {
-        left: 20% !important;
-      }
-
-      &.mistake-6 {
         left: 25% !important;
       }
-    }
-
-    .meteor-tail {
-      position: absolute;
-      left: -5%;
-      top: 40vh;
-      border-top: 30px solid transparent;
-      border-bottom: 30px solid transparent;
-      border-right: 58px solid #0dffe1;
-      width: 0;
-      height: 0;
-      &.explosion {
-        display: none !important;
-      }
-      &.mistake-1 {
-        left: -5% !important;
-      }
-
-      &.mistake-2 {
-        left: 0% !important;
-      }
-
-      &.mistake-3 {
-        left: 5% !important;
-      }
-
-      &.mistake-4 {
-        left: 10% !important;
-      }
-
-      &.mistake-5 {
-        left: 15% !important;
-      }
 
       &.mistake-6 {
-        left: 20% !important;
+        left: 31% !important;
       }
     }
 
@@ -443,6 +406,24 @@ canvas {
       transform: scale(2.5) translate(50px, -50px) rotate(360deg);
     }
     100% {
+    }
+  }
+
+  &.loader-correct-width {
+    @media (max-width: 966px) {
+      display: none;
+    }
+  }
+
+  &.loader-wrong-width {
+    display: none;
+    @media (max-width: 965px) {
+      display: block;
+      .header {
+        width: 50%;
+        margin: 50px auto;
+        font-size: 20px;
+      }
     }
   }
 }

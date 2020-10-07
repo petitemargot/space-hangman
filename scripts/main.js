@@ -13,8 +13,8 @@ const starWarsWords = [
 ];
 
 const letters = `abcdefghijklmnopqrstuvwxyz`;
-const animationIds = ["boom", "meteor", "meteor-tail", "astronaut"];
-const mistakeElementsIds = ["meteor", "meteor-tail"];
+const animationIds = ["boom", "meteor", "astronaut"];
+const mistakeElementsIds = ["meteor"];
 
 let answer = ``;
 let maxWrong = 7;
