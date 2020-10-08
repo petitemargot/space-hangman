@@ -31,19 +31,9 @@ function generateAlphabet() {
     .split(``)
     .map(
       (letter) =>
-        `<button
-        class="letter button" id="` +
-        letter +
-        `"
-        onclick="handleGuess('` +
-        letter +
-        `')">
-        ` +
-        letter +
-        `
-         </button>`
-    )
-    .join("");
+        `<button class="letter button" id="` +
+        letter + `" onclick="handleGuess('` +
+        letter + `')">` + letter + `</button>`).join("");
 
   document.getElementById("keyboard").innerHTML = alphabet;
 }
@@ -116,14 +106,13 @@ function resetAnimation() {
       document.getElementById(animationIds[i]).classList.remove("explosion");
     }
   }
+  document.getElementById("mistakes").innerHTML = `${mistakes}`;
 }
 
 function resetMistakes() {
   for (let i = 0; i < mistakeElementsIds.length; i++) {
     for (let j = 1; j < 7; j++) {
-      document
-        .getElementById(mistakeElementsIds[i])
-        .classList.remove(`mistake-${j}`);
+      document.getElementById(mistakeElementsIds[i]).classList.remove(`mistake-${j}`);
     }
   }
 }
@@ -131,15 +120,18 @@ function resetMistakes() {
 function reset() {
   mistakes = 0;
   guessed = [];
+  setup('reset');
+}
+
+function setup(type) {
   randomWord();
   guessedWord();
-  resetMistakes();
   generateAlphabet();
-  resetAnimation();
+  if(type === `reset`){
+    resetMistakes();
+    resetAnimation();
+  }
 }
 
 document.getElementById("maxWrong").innerHTML = `${maxWrong}`;
-
-randomWord();
-generateAlphabet();
-guessedWord();
+setup(false);

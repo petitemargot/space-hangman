@@ -23,18 +23,14 @@
       </div>
       <div class="grid-row">
         <div class="grid-cell grid-cell-100">
-          <div class="mistakes">
-            Wrong Guesses: <span class="wrong" id="mistakes">0</span> of
-            <span class="max-wrong" id="maxWrong"></span>
-          </div>
-        </div>
-      </div>
-      <div class="grid-row">
-        <div class="grid-cell grid-cell-100">
           <div class="sub-headers">
-            <div>Guess the word</div>
+            <div class="sub-headers--head">Guess the word</div>
             <div class="sub-headers--sub">
-              (P.S. I really like a Star Wars Saga)
+              (P.S. I really like the Star Wars Saga)
+            </div>
+            <div class="sub-headers--mistakes">
+              Wrong Guesses: <span class="wrong" id="mistakes">0</span> of
+              <span class="max-wrong" id="maxWrong"></span>
             </div>
             <div class="astronaut" id="astronaut">
               <div class="astronaut-backpack"></div>
@@ -56,6 +52,9 @@
             </div>
             <div class="meteor" id="meteor">
               <div class="meteor-first-layer">
+                <div class="mistakes">
+                  <span class="wrong-steps" id="steps"></span>
+                </div>
                 <div class="meteor-second-layer first-triangle"></div>
                 <div class="meteor-second-layer second-triangle"></div>
                 <div class="meteor-second-layer third-triangle"></div>
