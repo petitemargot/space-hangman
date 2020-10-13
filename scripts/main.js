@@ -35,13 +35,13 @@ function generateAlphabet() {
         letter + `" onclick="handleGuess('` +
         letter + `')">` + letter + `</button>`).join("");
 
-  document.getElementById("keyboard").innerHTML = alphabet;
+  document.querySelector("#keyboard").innerHTML = alphabet;
 }
 
 function handleGuess(letter) {
   if (!letter) return false;
   if (guessed.indexOf(letter) === -1) guessed.push(letter);
-  document.getElementById(letter).setAttribute("disabled", "true");
+  document.querySelector(`#${letter}`).setAttribute("disabled", "true");
 
   if (answer.indexOf(letter) >= 0) guessedWord();
   else if (answer.indexOf(letter) === -1) {
@@ -62,40 +62,40 @@ function guessedWord() {
       return guessed.indexOf(letter) >= 0 ? letter : " _ ";
     })
     .join("");
-  document.getElementById("word-spotlight").innerHTML = wordStatus;
+  document.querySelector("#word-spotlight").innerHTML = wordStatus;
 }
 
 function checkGameStatus() {
   const word = wordStatus.replace(/\s/g, "");
   const correctAnswer = answer.replace(/\s/g, "");
   if (word === correctAnswer && mistakes !== maxWrong)
-    document.getElementById("keyboard").innerHTML = `You Won!`;
+    document.querySelector("#keyboard").innerHTML = `You Won!`;
   else if (word !== correctAnswer && mistakes === maxWrong) {
-    document.getElementById("keyboard").innerHTML = `You Lost!`;
-    document.getElementById("word-spotlight").innerHTML =
+    document.querySelector("#keyboard").innerHTML = `You Lost!`;
+    document.querySelector("#word-spotlight").innerHTML =
       "The answer was: " + answer;
   }
 }
 
 function updateMistakes() {
-  document.getElementById("mistakes").innerHTML = mistakes;
+  document.querySelector("#mistakes").innerHTML = mistakes;
 }
 
 function updateMeteor() {
 
     if (mistakes > 0 && mistakes < 7) {
       for (let i = 0; i < mistakeElementsIds.length; i++) {
-        document.getElementById(mistakeElementsIds[i]).classList.add(`mistake-${mistakes}`);
-        document.getElementById(mistakeElementsIds[i]).classList.remove(`mistake-${mistakes - 1}`);
+        document.querySelector(`#${mistakeElementsIds[i]}`).classList.add(`mistake-${mistakes}`);
+        document.querySelector(`#${mistakeElementsIds[i]}`).classList.remove(`mistake-${mistakes - 1}`);
       }
     }
    
     if (mistakes === 7) {
       for (let j = 0; j < animationIds.length; j++) {
-        document.getElementById(animationIds[j]).classList.add("explosion");
+        document.querySelector(`#${animationIds[j]}`).classList.add("explosion");
       }
       for (let k = 0; k < mistakeElementsIds.length; k++) {
-        document.getElementById(mistakeElementsIds[k]).classList.remove(`mistake-6`);
+        document.querySelector(`#${mistakeElementsIds[k]}`).classList.remove(`mistake-6`);
       }
     }
 }
@@ -103,16 +103,16 @@ function updateMeteor() {
 function resetAnimation() {
   if (mistakes === 0) {
     for (let i = 0; i < animationIds.length; i++) {
-      document.getElementById(animationIds[i]).classList.remove("explosion");
+      document.querySelector(`#${animationIds[i]}`).classList.remove("explosion");
     }
   }
-  document.getElementById("mistakes").innerHTML = `${mistakes}`;
+  document.querySelector("#mistakes").innerHTML = `${mistakes}`;
 }
 
 function resetMistakes() {
   for (let i = 0; i < mistakeElementsIds.length; i++) {
     for (let j = 1; j < 7; j++) {
-      document.getElementById(mistakeElementsIds[i]).classList.remove(`mistake-${j}`);
+      document.querySelector(`#${mistakeElementsIds[i]}`).classList.remove(`mistake-${j}`);
     }
   }
 }
